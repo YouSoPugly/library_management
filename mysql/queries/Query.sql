@@ -1,6 +1,6 @@
 -- Query.sql
 -- University Library Project
--- Team: Daniel P, Dylan P (Group 10)
+-- Team: Daniel P, Dylan P, Thomas P, Gentry R, Chris R (Group 10)
 -- MySQL 8.x
 
 USE university_library;
