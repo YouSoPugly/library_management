@@ -52,7 +52,7 @@ Update values as needed (e.g., passwords, ports).
 ### 3. Start the Services
 
 ``` bash
-docker compose up --build
+docker compose up --build -d
 ```
 
 ---
