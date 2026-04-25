@@ -14,9 +14,7 @@ from app.schemas.schemas import (
     InterLibraryLoanCreate, InterLibraryLoanOut, InterLibraryLoanUpdate,
 )
 
-# ──────────────────────────────────────────
 # CHECKOUTS
-# ──────────────────────────────────────────
 
 checkouts_router = APIRouter(prefix="/checkouts", tags=["Checkouts"])
 
@@ -80,9 +78,7 @@ async def delete_checkout(checkout_id: int, db: AsyncSession = Depends(get_db), 
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # HOLDS
-# ──────────────────────────────────────────
 
 holds_router = APIRouter(prefix="/holds", tags=["Holds"])
 
@@ -142,9 +138,7 @@ async def delete_hold(hold_id: int, db: AsyncSession = Depends(get_db), _=Depend
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # INTER-LIBRARY LOANS
-# ──────────────────────────────────────────
 
 ill_router = APIRouter(prefix="/inter-library-loans", tags=["Inter-Library Loans"])
 
@@ -205,9 +199,7 @@ async def delete_loan(loan_id: int, db: AsyncSession = Depends(get_db), _=Depend
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # FINES
-# ──────────────────────────────────────────
 
 fines_router = APIRouter(prefix="/fines", tags=["Fines"])
 

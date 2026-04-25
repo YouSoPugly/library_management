@@ -16,9 +16,7 @@ from app.schemas.schemas import (
     StaffRoleCreate,
 )
 
-# ──────────────────────────────────────────
 # STAFF
-# ──────────────────────────────────────────
 
 staff_router = APIRouter(prefix="/staff", tags=["Staff"])
 
@@ -62,9 +60,7 @@ async def delete_staff(staff_id: int, db: AsyncSession = Depends(get_db), _=Depe
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # ROLES
-# ──────────────────────────────────────────
 
 roles_router = APIRouter(prefix="/roles", tags=["Roles & Permissions"])
 
@@ -92,9 +88,7 @@ async def delete_role(role_id: int, db: AsyncSession = Depends(get_db), _=Depend
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # PERMISSIONS
-# ──────────────────────────────────────────
 
 permissions_router = APIRouter(prefix="/permissions", tags=["Roles & Permissions"])
 
@@ -122,9 +116,7 @@ async def delete_permission(permission_id: int, db: AsyncSession = Depends(get_d
     await db.commit()
 
 
-# ──────────────────────────────────────────
-# ROLE ↔ PERMISSION  (many-to-many)
-# ──────────────────────────────────────────
+# ROLE <-> PERMISSION  (many-to-many)
 
 role_permissions_router = APIRouter(prefix="/role-permissions", tags=["Roles & Permissions"])
 
@@ -146,9 +138,7 @@ async def remove_permission_from_role(role_id: int, permission_id: int, db: Asyn
     await db.commit()
 
 
-# ──────────────────────────────────────────
-# STAFF ↔ ROLE  (many-to-many)
-# ──────────────────────────────────────────
+# STAFF <-> ROLE  (many-to-many)
 
 staff_roles_router = APIRouter(prefix="/staff-roles", tags=["Roles & Permissions"])
 

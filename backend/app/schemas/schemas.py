@@ -9,9 +9,7 @@ from typing import List, Optional
 from pydantic import BaseModel, EmailStr, field_validator
 
 
-# ─────────────────────────────────────────────
 # AUTH
-# ─────────────────────────────────────────────
 
 class Token(BaseModel):
     access_token: str
@@ -22,9 +20,7 @@ class TokenData(BaseModel):
     staff_id: Optional[int] = None
 
 
-# ─────────────────────────────────────────────
 # UNIVERSITY
-# ─────────────────────────────────────────────
 
 class UniversityCreate(BaseModel):
     name: str
@@ -35,9 +31,7 @@ class UniversityOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # LOCATION
-# ─────────────────────────────────────────────
 
 class LocationCreate(BaseModel):
     name: str
@@ -54,9 +48,7 @@ class LocationOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # LIBRARY
-# ─────────────────────────────────────────────
 
 class LibraryCreate(BaseModel):
     name: str
@@ -69,9 +61,7 @@ class LibraryOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # PATRON
-# ─────────────────────────────────────────────
 
 class PatronCreate(BaseModel):
     patron_type: str   # "Student" or "Faculty"
@@ -93,9 +83,7 @@ class PatronOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # STUDENT
-# ─────────────────────────────────────────────
 
 class StudentCreate(BaseModel):
     patron_id: int
@@ -112,9 +100,7 @@ class StudentOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # FACULTY
-# ─────────────────────────────────────────────
 
 class FacultyCreate(BaseModel):
     patron_id: int
@@ -133,9 +119,7 @@ class FacultyOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # STAFF
-# ─────────────────────────────────────────────
 
 class StaffCreate(BaseModel):
     first_name: str
@@ -153,9 +137,7 @@ class StaffOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
-# ROLE / PERMISSION
-# ─────────────────────────────────────────────
+# ROLE, PERMISSION
 
 class RoleCreate(BaseModel):
     role_name: str
@@ -182,9 +164,7 @@ class StaffRoleCreate(BaseModel):
     role_id: int
 
 
-# ─────────────────────────────────────────────
-# ITEM TITLE / AUTHOR
-# ─────────────────────────────────────────────
+# ITEM TITLE, AUTHOR
 
 class ItemTitleCreate(BaseModel):
     title: str
@@ -217,9 +197,7 @@ class ItemAuthorCreate(BaseModel):
     author_id: int
 
 
-# ─────────────────────────────────────────────
 # ITEM COPY
-# ─────────────────────────────────────────────
 
 class ItemCopyCreate(BaseModel):
     item_id: int
@@ -248,9 +226,7 @@ class ItemCopyOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # CHECKOUT
-# ─────────────────────────────────────────────
 
 class CheckoutCreate(BaseModel):
     patron_id: int
@@ -271,9 +247,7 @@ class CheckoutOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # HOLD
-# ─────────────────────────────────────────────
 
 class HoldCreate(BaseModel):
     patron_id: int
@@ -293,9 +267,7 @@ class HoldOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # INTER-LIBRARY LOAN
-# ─────────────────────────────────────────────
 
 class InterLibraryLoanCreate(BaseModel):
     copy_id: int
@@ -320,9 +292,7 @@ class InterLibraryLoanOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # FINE
-# ─────────────────────────────────────────────
 
 class FineCreate(BaseModel):
     patron_id: int
@@ -345,9 +315,7 @@ class FineOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # ROOM
-# ─────────────────────────────────────────────
 
 class RoomCreate(BaseModel):
     library_id: int
@@ -368,9 +336,7 @@ class RoomOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-# ─────────────────────────────────────────────
 # ROOM RESERVATION
-# ─────────────────────────────────────────────
 
 class RoomReservationCreate(BaseModel):
     room_id: int

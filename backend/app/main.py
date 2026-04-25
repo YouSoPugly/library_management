@@ -72,45 +72,45 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # Tighten for production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ── Auth ──────────────────────────────────
+#  Auth
 app.include_router(auth_router)
 
-# ── Location hierarchy ────────────────────
+#  Location hierarchy
 app.include_router(universities_router)
 app.include_router(locations_router)
 app.include_router(libraries_router)
 
-# ── People ────────────────────────────────
+#  People
 app.include_router(patrons_router)
 app.include_router(students_router)
 app.include_router(faculty_router)
 app.include_router(staff_router)
 
-# ── RBAC ─────────────────────────────────
+#  Access Control
 app.include_router(roles_router)
 app.include_router(permissions_router)
 app.include_router(role_permissions_router)
 app.include_router(staff_roles_router)
 
-# ── Catalog ───────────────────────────────
+#  Catalog
 app.include_router(items_router)
 app.include_router(authors_router)
 app.include_router(item_authors_router)
 app.include_router(copies_router)
 
-# ── Circulation ───────────────────────────
+#  Circulation
 app.include_router(checkouts_router)
 app.include_router(holds_router)
 app.include_router(ill_router)
 app.include_router(fines_router)
 
-# ── Rooms ─────────────────────────────────
+#  Rooms
 app.include_router(rooms_router)
 app.include_router(reservations_router)
 

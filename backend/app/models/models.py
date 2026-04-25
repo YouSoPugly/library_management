@@ -15,9 +15,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.core.database import Base
 
 
-# ─────────────────────────────────────────────
-# 1. UNIVERSITY / LOCATION / LIBRARY
-# ─────────────────────────────────────────────
+# UNIVERSITY, LOCATION, LIBRARY
 
 class University(Base):
     __tablename__ = "UNIVERSITY"
@@ -60,9 +58,7 @@ class Library(Base):
     rooms: Mapped[List["Room"]] = relationship("Room", back_populates="library")
 
 
-# ─────────────────────────────────────────────
-# 2. PATRONS, STUDENTS, FACULTY, STAFF
-# ─────────────────────────────────────────────
+# PATRONS, STUDENTS, FACULTY, STAFF
 
 class Patron(Base):
     __tablename__ = "PATRON"
@@ -131,9 +127,7 @@ class Staff(Base):
     staff_roles: Mapped[List["StaffRole"]] = relationship("StaffRole", back_populates="staff")
 
 
-# ─────────────────────────────────────────────
-# 3. ACCESS CONTROL (RBAC)
-# ─────────────────────────────────────────────
+# ACCESS CONTROL
 
 class Role(Base):
     __tablename__ = "ROLE"
@@ -182,9 +176,7 @@ class StaffRole(Base):
     role: Mapped["Role"] = relationship("Role", back_populates="staff_roles")
 
 
-# ─────────────────────────────────────────────
-# 4. LIBRARY ITEMS / AUTHORS
-# ─────────────────────────────────────────────
+# LIBRARY ITEMS, AUTHORS
 
 class ItemTitle(Base):
     __tablename__ = "ITEM_TITLE"
@@ -246,9 +238,7 @@ class ItemCopy(Base):
     inter_library_loans: Mapped[List["InterLibraryLoan"]] = relationship("InterLibraryLoan", back_populates="copy")
 
 
-# ─────────────────────────────────────────────
-# 5. CHECKOUTS / HOLDS / ILL / FINES
-# ─────────────────────────────────────────────
+# CHECKOUTS, HOLDS, ILL, FINES
 
 class Checkout(Base):
     __tablename__ = "CHECKOUT"
@@ -337,9 +327,7 @@ class Fine(Base):
     checkout: Mapped["Checkout"] = relationship("Checkout", back_populates="fines")
 
 
-# ─────────────────────────────────────────────
-# 6. ROOMS / RESERVATIONS
-# ─────────────────────────────────────────────
+# 6. ROOMS, RESERVATIONS
 
 class Room(Base):
     __tablename__ = "ROOM"

@@ -13,9 +13,7 @@ from app.schemas.schemas import (
     StudentCreate, StudentOut,
 )
 
-# ──────────────────────────────────────────
 # PATRONS
-# ──────────────────────────────────────────
 
 patrons_router = APIRouter(prefix="/patrons", tags=["Patrons"])
 
@@ -69,9 +67,7 @@ async def delete_patron(patron_id: int, db: AsyncSession = Depends(get_db), _=De
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # STUDENTS
-# ──────────────────────────────────────────
 
 students_router = APIRouter(prefix="/students", tags=["Students"])
 
@@ -122,9 +118,7 @@ async def delete_student(student_id: int, db: AsyncSession = Depends(get_db), _=
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # FACULTY
-# ──────────────────────────────────────────
 
 faculty_router = APIRouter(prefix="/faculty", tags=["Faculty"])
 

@@ -14,9 +14,7 @@ from app.schemas.schemas import (
     ItemTitleCreate, ItemTitleOut,
 )
 
-# ──────────────────────────────────────────
 # ITEM TITLES
-# ──────────────────────────────────────────
 
 items_router = APIRouter(prefix="/items", tags=["Catalog"])
 
@@ -74,9 +72,7 @@ async def delete_item(item_id: int, db: AsyncSession = Depends(get_db), _=Depend
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # AUTHORS
-# ──────────────────────────────────────────
 
 authors_router = APIRouter(prefix="/authors", tags=["Catalog"])
 
@@ -112,9 +108,7 @@ async def delete_author(author_id: int, db: AsyncSession = Depends(get_db), _=De
     await db.commit()
 
 
-# ──────────────────────────────────────────
-# ITEM ↔ AUTHOR  (many-to-many)
-# ──────────────────────────────────────────
+# ITEM <-> AUTHOR  (many-to-many)
 
 item_authors_router = APIRouter(prefix="/item-authors", tags=["Catalog"])
 
@@ -136,9 +130,7 @@ async def remove_author(item_id: int, author_id: int, db: AsyncSession = Depends
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # ITEM COPIES
-# ──────────────────────────────────────────
 
 copies_router = APIRouter(prefix="/copies", tags=["Catalog"])
 

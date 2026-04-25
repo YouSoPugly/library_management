@@ -12,9 +12,7 @@ from app.schemas.schemas import (
     RoomReservationCreate, RoomReservationOut, RoomReservationUpdate,
 )
 
-# ──────────────────────────────────────────
 # ROOMS
-# ──────────────────────────────────────────
 
 rooms_router = APIRouter(prefix="/rooms", tags=["Rooms"])
 
@@ -65,9 +63,7 @@ async def delete_room(room_id: int, db: AsyncSession = Depends(get_db), _=Depend
     await db.commit()
 
 
-# ──────────────────────────────────────────
 # ROOM RESERVATIONS
-# ──────────────────────────────────────────
 
 reservations_router = APIRouter(prefix="/reservations", tags=["Rooms"])
 
