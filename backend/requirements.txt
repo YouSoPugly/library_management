@@ -9,4 +9,5 @@ python-multipart
 
 ## Security
 passlib[bcrypt]
+bcrypt==4.0.1
 python-jose[cryptography]

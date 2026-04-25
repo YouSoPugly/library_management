@@ -118,7 +118,7 @@ CREATE TABLE STAFF (
     last_name VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     library_id INT NOT NULL, -- Staff works at a specific library
-    hashed_password VARCHAR(255) NOT NULL DEFAULT '';
+    hashed_password VARCHAR(255) NOT NULL DEFAULT '',
 
     CONSTRAINT fk_staff_library
         FOREIGN KEY (library_id)
