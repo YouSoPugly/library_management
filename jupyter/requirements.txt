@@ -1,0 +1,20 @@
+# Core SQL connectivity
+sqlalchemy>=2.0
+pymysql>=1.1
+faker
+
+# Jupyter SQL magic (for teaching)
+ipython-sql>=0.5
+
+# Data handling
+pandas>=2.0
+prettytable<3.12
+
+# Optional but useful (display + nicer tables)
+tabulate>=0.9
+
+# Optional (progress bars for larger queries)
+tqdm>=4.66
+graphviz
+itables
+eralchemy
