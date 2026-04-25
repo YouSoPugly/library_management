@@ -9,14 +9,18 @@ from __future__ import annotations
 
 import os
 import random
+import string
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 from typing import List, Tuple
 from urllib.parse import quote_plus
 
+from faker import Faker
 from sqlalchemy import create_engine, text
 from sqlalchemy.engine import Engine, Connection
 
+fake = Faker()
+Faker.seed(42)
 random.seed(42)
 
 # Use environment variables when possible.
@@ -256,6 +260,9 @@ def seed_patrons_students_faculty(
     return patron_ids, student_patron_ids, faculty_patron_ids
 
 
+def random_hash(length: int = 60) -> str:
+    return "".join(random.choices(string.ascii_letters + string.digits, k=length))
+
 def seed_staff(conn: Connection, library_ids: List[int]) -> List[int]:
     rows = []
     for _ in range(NUM_STAFF):
@@ -265,14 +272,15 @@ def seed_staff(conn: Connection, library_ids: List[int]) -> List[int]:
                 "last_name": fake.last_name(),
                 "email": fake.unique.email(),
                 "library_id": random.choice(library_ids),
+                "hashed_password": random_hash(),  # fake hash
             }
         )
 
     conn.execute(
         text(
             """
-            INSERT INTO STAFF (first_name, last_name, email, library_id)
-            VALUES (:first_name, :last_name, :email, :library_id)
+            INSERT INTO STAFF (first_name, last_name, email, library_id, hashed_password)
+            VALUES (:first_name, :last_name, :email, :library_id, :hashed_password)
             """
         ),
         rows,
