@@ -1,3 +1,8 @@
+-- Query.sql
+-- University Library Project
+-- Team: Daniel P, Dylan P (Group 10)
+-- MySQL 8.x
+
 USE university_library;
 
 -- ============================================================
